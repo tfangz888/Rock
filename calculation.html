@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>计算题</title>
+<style type="text/css">
+body {
+  background-color:black;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: center;
+  margin: 0;
+  height: 1000px;
+}
+#sym, #result {
+  color:red;
+}
+#equal {
+  color:blue;
+}
+h1 {
+  color:green;
+  margin:100;
+  font-size:1000%;
+}
+p {
+  color:red;
+  font-size: 500%;
+}
+</style>
+<script>
+var add1=1, add2=2, result=0;
+var cal=true;
+function change() {
+  if (true == cal) {
+    if ('+' == document.getElementById('sym').innerHTML) {
+	  result = add1 + add2;
+	} else {
+	  result = add1 - add2;
+	}
+    document.getElementById('result').innerHTML = result;
+    cal = false;
+	return;
+  }
+  
+  add1 = Math.floor(Math.random() * 11);
+  document.getElementById('add1').innerHTML = add1;
+  var sym = Math.floor(Math.random() * 10000);
+  if(sym % 5 != 0) {
+    document.getElementById('sym').innerHTML = '+';
+  } else {
+    document.getElementById('sym').innerHTML = '-';
+  } 
+  add2 = Math.floor(Math.random() * 11);
+  document.getElementById('add2').innerHTML = add2;
+  document.getElementById('result').innerHTML = '?';
+  cal = true;
+}
+</script>
+</head>
+
+<body onclick="change()">
+<h1 id="add1">  1   </h1>
+<h1 id="sym">+</h1>
+<h1 id="add2">   2  </h1> 
+<h1 id="equal">  =  </h1>
+<h1 id="result">  ? </h1>
+
+</body>
+
+</html>
